@@ -1,13 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
-import { NavComponent } from './nav/nav.component';
-import { MainComponent } from './main/main.component';
+import { PersonatgeComponent } from './personatge/personatge.component';
 import { FooterComponent } from './footer/footer.component';
 
 @Component({
-  imports: [HeaderComponent, NavComponent, MainComponent, FooterComponent],
+  imports: [HeaderComponent, PersonatgeComponent, FooterComponent],
   selector: 'app-root',
-  styleUrl: './app.component.css',
   templateUrl: './app.component.html',
 })
 export class App {
