@@ -1,1 +1,12 @@
-<p>personatge works!</p>
+<section>
+  <h2>Personatges Principals</h2>
+  <div>
+    @for(personatge of personatges; track personatge.nom){
+      <article>
+        <h3>{{personatge.nom}}</h3>
+        <img [src]="personatge.img" width="275">
+        <p>{{personatge.descripcio}}</p>
+      </article>
+    }
+  </div>
+</section>
