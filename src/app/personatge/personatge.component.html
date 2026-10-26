@@ -1,11 +1,19 @@
-<section>
-  <h2>Personatges Principals</h2>
-  <div>
-    @for(personatge of personatges; track personatge.nom){
-      <article>
-        <h3>{{personatge.nom}}</h3>
-        <img [src]="personatge.img" width="275">
-        <p>{{personatge.descripcio}}</p>
+<section class="bg-black px-6 py-12">
+  <h2 class="mb-10 text-center text-2xl font-light uppercase tracking-[0.25em] text-slate-300 drop-shadow-[0_0_8px_rgba(186,214,255,0.35)]">
+    Personatges Principals
+  </h2>
+
+  <div class="mx-auto grid max-w-6xl grid-cols-1 justify-items-center gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    @for (personatge of personatges; track personatge.nom) {
+      <article class="group flex w-full max-w-75 flex-col items-center rounded-lg border border-slate-700/60 bg-zinc-950 p-5 text-center shadow-lg shadow-black/60 transition duration-300 hover:-translate-y-1 hover:border-slate-400/70 hover:shadow-[0_0_20px_rgba(186,214,255,0.2)]">
+        <h3 class="mb-4 text-lg font-light uppercase tracking-widest text-slate-300 transition duration-300 group-hover:text-white">
+          {{ personatge.nom }}
+        </h3>
+        <img [src]="personatge.img" [alt]="personatge.nom"
+             class="mb-4 h-64 w-full rounded-md border border-slate-800 object-cover opacity-90 transition duration-300 group-hover:opacity-100">
+        <p class="text-sm leading-relaxed text-slate-400">
+          {{ personatge.descripcio }}
+        </p>
       </article>
     }
   </div>
