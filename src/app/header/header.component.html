@@ -1,14 +1,24 @@
-<div>
-  <img src="./../../assets/logo-hollowKnight.png" alt="logo" width="60">
-  <p>Benvingut a la web</p>
-</div>
+<header class="flex items-center justify-between gap-6 bg-zinc-950 border-b border-slate-700/60 px-6 py-3 shadow-lg shadow-black/60">
+  <div class="flex items-center gap-4">
+    <img src="./../../assets/logo-hollowKnight.png" alt="logo" width="60"
+         class="drop-shadow-[0_0_8px_rgba(186,214,255,0.35)]">
+    <p class="text-slate-300 tracking-[0.25em] uppercase text-sm font-light">Benvingut a la web</p>
+  </div>
 
-<!-- TODO: Menu navegació -->
-<nav>
-  <ul>
-    <li><a (click)="canviSeccio.emit('inici')">Inici</a></li>
-    <li><a (click)="canviSeccio.emit('personatges')">Personatges</a></li>
-    <li><a (click)="canviSeccio.emit('historia')">Història</a></li>
-  </ul>
-</nav>
-<hr>
+  <nav>
+    <ul class="flex items-center gap-8">
+      <li>
+        <a class="cursor-pointer select-none uppercase tracking-widest text-sm text-slate-400 transition duration-300 hover:text-white hover:drop-shadow-[0_0_6px_rgba(186,214,255,0.8)]"
+           (click)="canviSeccio.emit('inici')">Inici</a>
+      </li>
+      <li>
+        <a class="cursor-pointer select-none uppercase tracking-widest text-sm text-slate-400 transition duration-300 hover:text-white hover:drop-shadow-[0_0_6px_rgba(186,214,255,0.8)]"
+           (click)="canviSeccio.emit('personatges')">Personatges</a>
+      </li>
+      <li>
+        <a class="cursor-pointer select-none uppercase tracking-widest text-sm text-slate-400 transition duration-300 hover:text-white hover:drop-shadow-[0_0_6px_rgba(186,214,255,0.8)]"
+           (click)="canviSeccio.emit('historia')">Història</a>
+      </li>
+    </ul>
+  </nav>
+</header>
