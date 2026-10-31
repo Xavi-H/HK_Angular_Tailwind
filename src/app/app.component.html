@@ -1,9 +1,11 @@
 <app-header (canviSeccio)="seccio = $event" /> <!-- Quan header emiteix un event es guarda el valor aen la variable seccio-->
 
-@switch (seccio) {
-  @case ('inici') { <app-inici /> }
-  @case ('personatges') { <app-personatge /> }
-  @case ('historia') { <app-historia /> }
-}
+<main>
+  @switch (seccio) {
+    @case ('inici') { <app-inici (canviSeccio)="seccio = $event" /> }
+    @case ('personatges') { <app-personatge /> }
+    @case ('historia') { <app-historia /> }
+  }
+</main>
 
 <app-footer />

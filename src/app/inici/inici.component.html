@@ -1,1 +1,44 @@
-<p>inici works!</p>
+<section class="relative flex min-h-[75vh] items-center justify-center overflow-hidden bg-black">
+  <!-- Imagen de fondo + degradado para que el texto se lea -->
+  <img [src]="imgFondo" alt="Hollow Knight"
+       class="absolute inset-0 h-full w-full object-cover opacity-40">
+
+  <div class="relative z-10 mx-auto max-w-3xl px-6 py-16 text-center">
+    <p class="mb-4 text-xs uppercase tracking-[0.4em] text-slate-500">Benvingut a Hallownest</p>
+
+    <h1 class="text-4xl font-light uppercase tracking-[0.25em] text-slate-200 drop-shadow-[0_0_12px_rgba(186,214,255,0.45)] sm:text-6xl">
+      Hollow Knight
+    </h1>
+
+    <p class="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-slate-400 sm:text-base">
+      Descendeix a un regne oblidat sota la ciutat de Dirtmouth. Descobreix els seus habitants,
+      els seus secrets i la història d'un món que s'ha apagat.
+    </p>
+
+    <!-- Botones de acción (navegan por las secciones de la web) -->
+    <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <button type="button"
+              class="cursor-pointer rounded border border-slate-300/70 bg-slate-200/10 px-8 py-3 text-sm uppercase tracking-widest text-slate-100 transition duration-300 hover:bg-slate-200/20 hover:shadow-[0_0_18px_rgba(186,214,255,0.4)]"
+              (click)="canviSeccio.emit('personatges')">
+        Explora els personatges
+      </button>
+      <button type="button"
+              class="cursor-pointer rounded border border-slate-700/60 px-8 py-3 text-sm uppercase tracking-widest text-slate-400 transition duration-300 hover:border-slate-400/70 hover:text-white"
+              (click)="canviSeccio.emit('historia')">
+        Coneix la història
+      </button>
+    </div>
+
+    <!-- Enllaços externs oficials -->
+    <ul class="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+      @for (enllac of enllacos; track enllac.url) {
+        <li>
+          <a [href]="enllac.url" target="_blank" rel="noopener noreferrer"
+             class="text-xs uppercase tracking-widest text-slate-500 transition duration-300 hover:text-white hover:drop-shadow-[0_0_6px_rgba(186,214,255,0.8)]">
+            {{ enllac.text }} ↗
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
