@@ -1,1 +1,38 @@
-<p>historia works!</p>
+<section class="bg-black px-6 py-12">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="mb-10 text-center text-2xl font-light uppercase tracking-[0.25em] text-slate-300 drop-shadow-[0_0_8px_rgba(186,214,255,0.35)]">
+      La Història de Hallownest
+    </h2>
+
+    <!-- Bloque sense spoilers -->
+    <article class="rounded-lg border border-slate-700/60 bg-zinc-950 p-6 shadow-lg shadow-black/60 sm:p-8">
+      <h3 class="mb-4 text-sm uppercase tracking-[0.3em] text-slate-500">Sense spoilers</h3>
+      @for (paragraf of historiaSenseSpoilers; track $index) {
+        <p class="mb-4 text-sm leading-relaxed text-slate-400 last:mb-0 sm:text-base">{{ paragraf }}</p>
+      }
+    </article>
+
+    <!-- Botó desplegable -->
+    <div class="mt-8 text-center">
+      <button type="button"
+              class="cursor-pointer rounded border border-slate-700/60 px-8 py-3 text-sm uppercase tracking-widest text-slate-400 transition duration-300 hover:border-slate-400/70 hover:text-white hover:shadow-[0_0_18px_rgba(186,214,255,0.25)]"
+              [attr.aria-expanded]="mostraSpoilers()"
+              (click)="toggleSpoilers()">
+        {{ mostraSpoilers() ? 'Amaga els spoilers' : 'Mostra la història amb spoilers' }}
+      </button>
+      @if (!mostraSpoilers()) {
+        <p class="mt-3 text-xs text-slate-600">Atenció: revela detalls importants de la trama.</p>
+      }
+    </div>
+
+    <!-- Bloque amb spoilers (nomes es pinta si está desplegat) -->
+    @if (mostraSpoilers()) {
+      <article class="mt-8 rounded-lg border border-red-900/40 bg-zinc-950 p-6 shadow-lg shadow-black/60 sm:p-8">
+        <h3 class="mb-4 text-sm uppercase tracking-[0.3em] text-red-400/70">Amb spoilers</h3>
+        @for (paragraf of historiaAmbSpoilers; track $index) {
+          <p class="mb-4 text-sm leading-relaxed text-slate-400 last:mb-0 sm:text-base">{{ paragraf }}</p>
+        }
+      </article>
+    }
+  </div>
+</section>
